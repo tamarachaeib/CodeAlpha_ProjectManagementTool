@@ -59,9 +59,6 @@ task-management-app/
 
 5. Open `http://localhost:5001` in your browser.
 
-## 📸 Screenshots
-
-_(Add a few screenshots of the projects list and the board view here before submitting)_
 
 ## 👩‍💻 Author
 
