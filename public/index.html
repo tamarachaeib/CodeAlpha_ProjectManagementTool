@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+
+  <!-- ============ AUTH SECTION ============ -->
+  <section id="auth-section">
+    <div class="auth-card">
+      <h1 class="logo">Task<span>Flow</span></h1>
+
+      <form id="login-form" class="auth-form">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p class="switch-text">
+          Don't have an account? <a href="#" id="show-register">Register</a>
+        </p>
+        <p class="error-msg" id="login-error"></p>
+      </form>
+
+      <form id="register-form" class="auth-form hidden">
+        <h2>Create account</h2>
+        <input type="text" id="register-username" placeholder="Username" required />
+        <input type="email" id="register-email" placeholder="Email" required />
+        <input type="password" id="register-password" placeholder="Password (min 6 chars)" required />
+        <button type="submit">Register</button>
+        <p class="switch-text">
+          Already have an account? <a href="#" id="show-login">Login</a>
+        </p>
+        <p class="error-msg" id="register-error"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ MAIN APP ============ -->
+  <section id="app-section" class="hidden">
+
+    <nav class="navbar">
+      <h1 class="logo" id="nav-home" style="cursor:pointer;">Task<span>Flow</span></h1>
+      <div class="nav-right">
+        <div class="notif-wrapper">
+          <button id="notif-bell">🔔<span id="notif-badge" class="hidden">0</span></button>
+          <div id="notif-dropdown" class="hidden">
+            <h3>Notifications</h3>
+            <div id="notif-list"></div>
+          </div>
+        </div>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </nav>
+
+    <main class="container">
+
+      <!-- ============ PROJECTS LIST VIEW ============ -->
+      <div id="projects-view">
+        <div class="projects-header">
+          <h2 class="section-title">My Projects</h2>
+          <button id="new-project-btn">+ New Project</button>
+        </div>
+        <div id="projects-list"></div>
+      </div>
+
+      <!-- ============ BOARD VIEW (hidden until a project is opened) ============ -->
+      <div id="board-view" class="hidden">
+        <button id="back-to-projects">&larr; Back to projects</button>
+
+        <div class="board-header">
+          <div>
+            <h2 id="board-title"></h2>
+            <p id="board-description"></p>
+          </div>
+          <div class="board-header-actions">
+            <div id="board-members"></div>
+            <button id="add-member-btn" class="hidden">+ Add Member</button>
+            <button id="delete-project-btn" class="hidden">🗑️ Delete Project</button>
+          </div>
+        </div>
+
+        <div class="board-columns">
+          <div class="board-column" data-status="todo">
+            <div class="column-header">
+              <h3>📋 To Do</h3>
+              <button class="add-task-btn" data-status="todo">+</button>
+            </div>
+            <div class="column-tasks" id="column-todo"></div>
+          </div>
+
+          <div class="board-column" data-status="in-progress">
+            <div class="column-header">
+              <h3>🚧 In Progress</h3>
+              <button class="add-task-btn" data-status="in-progress">+</button>
+            </div>
+            <div class="column-tasks" id="column-in-progress"></div>
+          </div>
+
+          <div class="board-column" data-status="done">
+            <div class="column-header">
+              <h3>✅ Done</h3>
+              <button class="add-task-btn" data-status="done">+</button>
+            </div>
+            <div class="column-tasks" id="column-done"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </section>
+
+  <div id="toast-container"></div>
+
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>
